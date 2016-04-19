@@ -65,6 +65,12 @@
 																						'code'		=>$e->getCode(),
 																						'msg'		=>$e->getMessage()];
 		}
+
+		if(!$stmt->rowCount())
+																				return ['success'	=>false,
+																						'code'		=>3,
+																						'msg'		=>$tableId.' not found.'];
+																						
 																				return ['success'	=>true,
 																						'num_row'	=>$stmt->rowCount()];
 	}
@@ -97,7 +103,7 @@
 
 		if(!$stmt->rowCount())
 																				return ['success'	=>false,
-																						'code'		=>0,
+																						'code'		=>3,
 																						'msg'		=>$tableId.' not found.'];
 
 		foreach ($stmt as $row) {
